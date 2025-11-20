@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import sys
+
+def process_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            for line in file:
+                print(line.strip())  # Process each line (example: print it)
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: ./process_txt.py <file_path>")
+        sys.exit(1)
+    
+    file_path = sys.argv[1]
+    process_file(file_path)
